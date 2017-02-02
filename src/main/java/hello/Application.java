@@ -5,14 +5,23 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.bind.RelaxedPropertyResolver;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import java.net.*;
 
 @SpringBootApplication
 @RestController
 public class Application {
 
+        private String hostname() {
+		try {
+			return InetAddress.getLocalHost().getHostName();
+		} catch (java.net.UnknownHostException e) {
+			return "UNKNOWN";
+		}
+        }
+
 	@RequestMapping("/")
 	public String home() {
-		return "Hello AbaHello!";
+		return "Hello World!\nServed by: " + hostname();
 	}
 
 
