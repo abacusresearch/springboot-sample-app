@@ -21,7 +21,7 @@ public class Application {
 
 	@RequestMapping("/")
 	public String home() {
-		return "Hello ABACUS! Served by: " + hostname();
+		return "Hello World! Served by: " + hostname();
 	}
 
 
